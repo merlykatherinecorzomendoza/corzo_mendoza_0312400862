@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante - Prenotazioni</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;  /* Preveniamo lo scroll orizzontale dovuto all'immagine */
+        }
+        /* L'overlay per l'immagine di sfondo */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            opacity: 0.4;  /* Imposta l'opacità per renderla più trasparente */
+            z-index: -1;  /* Posiziona l'overlay dietro il contenuto */
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-trasparente per la carta */
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 20px;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+        button[type="submit"] {
+            background-color: #28a745;
+            border: none;
+            color: white;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background-overlay"></div> <!-- L'overlay dell'immagine -->
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Effettua una nuova prenotazione
+        </div>
+        <div class="card-body">
+            <form id="form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mail" class="form-label">Mail</label>
+                    <input type="email" class="form-control" id="mail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Telefono</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Data</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label">Ora</label>
+                    <select id="time" class="form-select" required>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="21:00">21:00</option>
+                        <option value="21:30">21:30</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="guests" class="form-label">Numero di persone
+                        <!-- Icona informativa con tooltip -->
+                        <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Per gruppi più numerosi di 6 persone vi invitiamo a telefonarci."></i>
+                    </label>
+                    <input type="number" id="guests" class="form-control" min="1" max="6" required>
+                </div>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Note aggiuntive</label>
+                    <textarea class="form-control" id="notes" rows="3" placeholder="Inserisci eventuali note aggiuntive"></textarea>
+                </div>
+                <button type="submit" class="btn btn-custom">Prenota</button>
+            </form>
+            
+            <!-- Bottone per visualizzare le prenotazioni -->
+            <a href="visualizza-prenotazioni.html" class="btn btn-secondary btn-custom">Visualizza le mie prenotazioni</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS e dipendenze -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<!-- Include anche il CSS per le icone di Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<script src="effettua-prenotazione.js"></script>
+
+<script>
+    // Attiva il tooltip
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+</script>
+
+</body>
+</html>

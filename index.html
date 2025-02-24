@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante - Prenotazioni</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;  /* Preveniamo lo scroll orizzontale dovuto all'immagine */
+        }
+        /* L'overlay per l'immagine di sfondo */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            opacity: 0.4;  /* Imposta l'opacità per renderla più trasparente */
+            z-index: -1;  /* Posiziona l'overlay dietro il contenuto */
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-trasparente per la carta */
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 20px;
+        }
+        .card-body {
+            text-align: center;
+            padding: 40px;
+        }
+        .btn-custom {
+            width: 200px;
+            margin: 10px;
+            font-size: 1.1rem;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .btn-secondary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-secondary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background-overlay"></div> <!-- L'overlay dell'immagine -->
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Sistema di prenotazione
+        </div>
+        <div class="card-body">
+            <p class="lead">Benvenuto nel sistema di prenotazione del nostro ristorante!</p>
+            <p class="lead">Cosa desidera fare?</p>
+
+            <!-- Bottone per effettuare una nuova prenotazione -->
+            <a href="effettua-prenotazione.html" class="btn btn-primary btn-custom">Effettua una nuova prenotazione</a>
+
+            <!-- Bottone per visualizzare le prenotazioni -->
+            <a href="visualizza-prenotazioni.html" class="btn btn-secondary btn-custom">Visualizza le mie prenotazioni</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS e dipendenze -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
